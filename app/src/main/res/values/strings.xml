@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">JetpackTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_item_menu_home">首页</string>
+    <string name="nav_item_menu_project">项目</string>
+    <string name="nav_item_menu_reservation">预约</string>
+    <string name="nav_item_menu_store">门店</string>
+    <string name="nav_item_menu_user">我的</string>
+    <string name="shopping_cart">购物车</string>
+</resources>

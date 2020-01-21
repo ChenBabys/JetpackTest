@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/bg_worker_top"
+    android:padding="10dp">
+<!--    上面的，要是想用主题颜色就这样。，android:background="?colorPrimary"-->
+    <!--    先打头两个字母才会出来，妈的-->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circle_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_nav_menu_home"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="周杰伦"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/circle_image"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="16464646546464@qq.com"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/user_name"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

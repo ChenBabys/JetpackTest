@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nva_group_path"
+    app:startDestination="@id/bnv_menu_project">
+
+<!--    有个很狗的地方，这里的fragment的id必须和menu中的一致才会起作用。另外简单的点击用不着action的，这里可以去掉。后续功能需要再加上-->
+
+
+    <fragment
+        android:id="@+id/bnv_menu_home"
+        android:name="com.example.jetpacktest.fragment.TextFragment"
+        android:label="text"
+        tools:layout="@layout/fragment_text">
+<!--        <action-->
+<!--            android:id="@+id/fragment_text_to_fragment_blank"-->
+<!--            app:destination="@id/bnv_menu_project" />-->
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bnv_menu_project"
+        android:name="com.example.jetpacktest.fragment.homeFragment"
+        android:label="text2"
+        tools:layout="@layout/fragment_home">
+<!--        <action-->
+<!--            android:id="@+id/fragment_text_to_fragment_blank2"-->
+<!--            app:destination="@id/bnv_menu_shopping_cart" />-->
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bnv_menu_shopping_cart"
+        android:name="com.example.jetpacktest.fragment.catorayFragment"
+        android:label="Blank"
+        tools:layout="@layout/fragment_catoray">
+<!--        <action-->
+<!--            android:id="@+id/fragment_blank_to_fragment_text"-->
+<!--            app:destination="@id/bnv_menu_user" />-->
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bnv_menu_user"
+        android:name="com.example.jetpacktest.fragment.BlankFragment"
+        android:label="Blank2"
+        tools:layout="@layout/fragment_blank">
+<!--        <action-->
+<!--            android:id="@+id/fragment_blank_to_fragment_text2"-->
+<!--            app:destination="@id/bnv_menu_home" />-->
+
+    </fragment>
+
+
+</navigation>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_Panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/content_text"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Hello World!"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintRight_toRightOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+        <!--        引入这个可以实现navigation功能，navigation的功能详见res/navigetion/的文件-->
+        <fragment
+            android:id="@+id/nav_fragments"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nva_group_path" />
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/bottom_navigation_view_menu"
+            tools:ignore="MissingConstraints" />
+
+
+        <!--        <com.google.android.material.bottomappbar.BottomAppBar-->
+        <!--            android:id="@+id/bottom_app_bar"-->
+        <!--            style="@style/Widget.MaterialComponents.BottomAppBar"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            app:fabAlignmentMode="center"-->
+        <!--            android:backgroundTint="@color/colorPrimaryDark"-->
+        <!--            app:fabCradleMargin="5dp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            tools:ignore="BottomAppBar,MissingConstraints" />-->
+
+        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--            android:id="@+id/fab"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_anchor="@id/bottom_app_bar"-->
+        <!--            app:layout_constraintBottom_toTopOf="@id/bottom_app_bar"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/bottom_app_bar"-->
+        <!--            tools:ignore="MissingConstraints" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

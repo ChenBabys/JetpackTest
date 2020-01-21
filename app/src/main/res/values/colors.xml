@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    主颜色-->
+    <color name="colorPrimary">#00E9FF</color>
+<!--    状态栏颜色-->
+    <color name="colorPrimaryDark">#00E9FF</color>
+    <color name="colorAccent">#D550FB</color>
+</resources>

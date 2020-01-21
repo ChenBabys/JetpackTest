@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data></data>
+
+    <!--    DrawerLayout他要放在最外成布局，他只可以放两个子布局，-->
+    <!--    一个是桌面显示的布局，第二个是侧滑栏布局-->
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.homeFragment">
+
+
+        <!--        第一个布局,主内容-->
+        <!--            加上CoordinatorLayout布局可以避免使用Snackbar时候，-->
+        <!--            FloatingActionButton被遮盖的情况-->
+<!--        android:fitsSystemWindows="true",在appbar和这个，以及colltoobar中设置这个属性就可以沉浸状态栏-->
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--            高度自定义，AppBarLayout必须是CoordinatorLayout的子布局-->
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:fitsSystemWindows="true"
+                android:layout_width="match_parent"
+                android:layout_height="230dp">
+
+                <!--标题的高度要这样设置,沾满appbarlayout,才会有拉伸效果，另外它必须是AppBarLayout直接子布局-->
+                <!--layout_scrollFlags,必须加在AppBarLayout里面最后一个布局，最后一个一般是悬浮的，上面的都是可以收起来的-->
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/coll_toobar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:contentScrim="?colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                    tools:ignore="MissingConstraints">
+
+                    <!--                    layout_collapseMode="parallax,表示在折叠过程中会发生一些错位偏移-->
+                    <ImageView
+                        android:id="@+id/backgroup_image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:fitsSystemWindows="true"
+                        app:layout_collapseMode="parallax" />
+
+                    <!--                    app:layout_collapseMode="pin"，表示在折叠过程中不会发生偏移，保持原状-->
+                    <Toolbar
+                        android:id="@+id/toobar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin"
+                        tools:ignore="NewApi" />
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <!--            悬浮的部件的后面的内容，用滑动控件,要添加layout_behavior，布局才会紧贴appbarlayout后面-->
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        app:cardCornerRadius="4dp">
+
+                        <TextView
+                            android:id="@+id/text_home"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_margin="15dp"
+                            android:gravity="center"
+                            android:text="@string/hello_blank_fragment" />
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+<!--            app:layout_anchor="@id/appbar"-->
+<!--            app:layout_anchorGravity="bottom|end".-->
+<!--            让他以appbar作为瞄点，悬浮在appbar上面，当appbar折叠后他也消失，拉下来就又会显示出来。-->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_anchor="@id/appbar"
+                app:layout_anchorGravity="bottom|end"
+                android:layout_margin="16dp"
+                android:src="@mipmap/ic_nav_menu_user" />
+
+            <!--            想要这个布局CoordinatorLayout起作用的部件，都需要直接用在他的贴身子布局。不能嵌套。-->
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        <!--第二个布局,侧滑菜单 android:layout_gravity="start"这句是关键-->
+        <!--        侧滑菜单的头部详细 布局在headerLayout设置一个新布局-->
+        <!--        按钮在menu中设置-->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/drawer_left_nav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/colorPrimary"
+            app:headerLayout="@layout/nva_header"
+            app:menu="@menu/bottom_navigation_view_menu" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
